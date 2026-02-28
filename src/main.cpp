@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include "../include/graph.h"
-#include "matching.h"
 #include "weighted_matching.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -32,36 +32,15 @@ int main() {
     WeightedMatching wm(g);
     wm.solve();
 
-    cout << "\nFinal Course Allocation\n";
-    cout << "-----------------------\n";
+    // Use utils to print allocation
+    printAllocation(wm.matchCourse);
 
-    for(int c = 0; c < courses; c++) {
-        if(wm.matchCourse[c] != -1) {
-            cout << "Course C" << c+1
-                 << " -> Professor P"
-                 << wm.matchCourse[c]+1
-                 << endl;
-        }
-    }
+    // Calculate satisfaction percentage
+    double satisfaction =
+        calculateSatisfaction(wm.totalScore, professors * 5);
 
-    cout << "\nLoaded Preferences\n";
-
-    for(int p = 0; p < g.P; p++) {
-        for(auto &edge : g.adj[p]) {
-            cout << "Professor P" << p+1
-                 << " prefers Course C"
-                 << edge.first+1
-                 << " weight "
-                 << edge.second << endl;
-        }
-    }
-
-    int maxPossibleScore = professors * 5; // assuming max weight = 5
-
-    double percentage =(double)wm.totalScore / maxPossibleScore * 100;
-
-    cout << "Satisfaction Percentage: "
-         << percentage << "%" << endl;
+    cout << "\nSatisfaction Percentage: "
+         << satisfaction << "%" << endl;
 
     return 0;
 }
