@@ -19,4 +19,5 @@ to maximize total satisfaction score.
 - Optimization Techniques
 
 ## Sample Output
+
 ![Allocation Output](screenshots/allocation_output.png)
