@@ -15,3 +15,10 @@ void printAllocation(const vector<int>& matchCourse);
 double calculateSatisfaction(int matched, int totalCourses);
 
 #endif
+
+
+
+double predictScore(int experience,
+                    int publications,
+                    int difficulty,
+                    double success_rate);

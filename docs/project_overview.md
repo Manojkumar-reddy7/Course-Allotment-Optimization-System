@@ -6,7 +6,7 @@ To design and implement a course allotment system that maximizes professor satis
 ## Problem Statement
 Manual allocation of courses to professors may not satisfy preferences and may lead to inefficient assignments.
 
-## Approachf h 
+## Approach
 The problem is modeled as a weighted bipartite graph:
 
 - Left set: Professors
