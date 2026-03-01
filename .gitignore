@@ -1,2 +1,7 @@
 *.exe
 .vscode/
+
+allot.exe
+temp.txt
+ml/__pycache__/
+*.pyc
