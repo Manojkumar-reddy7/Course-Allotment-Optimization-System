@@ -24,6 +24,24 @@ This project models course allocation as a weighted bipartite matching problem u
 ## System Architecture
 ![Architecture](docs/system_design.png)
 
+## System Evolution
+
+### Before Machine Learning
+![Before ML](screenshots/allocation_output.png)
+
+### After Machine Learning Integration
+![After ML](screenshots/allocation_output_ml.png)
+
+
 ## How to Run
-g++ src/main.cpp src/graph.cpp src/weighted_matching.cpp src/utils.cpp -Iinclude -o allot
-./allot 
+# 1.Install Python dependencies (only first time)
+pip install pandas scikit-learn joblib
+# 2.Train Machine Learning model
+cd ml
+python train_model.py
+cd ..
+# 3.Compile C++ program
+g++ src/*.cpp -Iinclude -o allot.exe
+# 4.Run the program
+./allot.exe
+
